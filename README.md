@@ -40,12 +40,23 @@ This makes duplicate detection **transparent, auditable, and easy for business t
 5. If merge recommended, agent generates a master merged record
 
 ---
+## 🤖 LLM Support
+This agent is **LLM-agnostic** and can work with any supported Large Language Model (LLM) integrated into Elastic Agent Builder.
+
+Examples:
+- OpenAI GPT models
+- Azure OpenAI
+- Anthropic Claude
+- Local/self-hosted LLMs (if connected)
+
+The LLM is used to generate human-readable explanations and final recommendations, while Elasticsearch handles fast retrieval and candidate search.
+-----
 
 ## 🛠 Tech Stack
 - Elasticsearch
 - ES|QL
 - DSL Query Search
-- Bulk API (data loading)
+- Bulk API (data loading)/grounded in elastic data
 - Elastic Agent Builder (workflow orchestration)
 
 ---
