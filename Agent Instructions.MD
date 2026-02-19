@@ -4,6 +4,14 @@
 Detect duplicate customer/person records in Elasticsearch and provide explainable reasoning behind the duplicate decision.
 
 ---
+## 🤖 LLM Usage
+This agent can use **any LLM** available in Elastic Agent Builder to generate:
+- reasoning explanations
+- confidence interpretation
+- merge/review recommendations
+
+The duplicate detection workflow remains the same regardless of the LLM used. Elasticsearch performs retrieval and similarity candidate search, while the LLM provides explainable output.
+
 
 ## 🧾 User Input Examples
 The agent accepts requests like:
