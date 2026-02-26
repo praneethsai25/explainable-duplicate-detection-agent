@@ -69,25 +69,32 @@ The agent always outputs:
 ---
 
 ## 🧩 Example Agent Response
-```json
-{
-  "record_a": "C001",
-  "record_b": "C002",
-  "confidence_score": 0.94,
-  "matched_fields": [
-    "email exact match",
-    "phone exact match",
-    "name similar",
-    "address similar"
-  ],
-  "recommendation": "MERGE",
-  "reason": "Both records share identical email and phone number, with similar name and address.",
-  "merged_master_record": {
-    "name": "Praneeth Kumar",
-    "email": "praneeth@gmail.com",
-    "phone": "9999999999",
-    "address": "MVP Colony Road",
-    "city": "Vizag",
-    "state": "AP"
-  }
-}
+🔎 Duplicate Analysis Result: Record C001 vs Record C002
+
+After comparing both records, I have determined that C001 and C002 are highly likely to be duplicate entries.
+
+✅ Matching Evidence
+
+The following fields strongly indicate that these records belong to the same individual:
+
+Email – Exact match
+
+Phone number – Exact match
+
+Name – Similar structure and spelling
+
+Address – Highly similar location details
+
+Email and phone number are strong unique identifiers in customer datasets. An exact match on both fields significantly increases confidence in the duplicate decision. The similarity in name and address further supports this conclusion.
+
+📊 Confidence Score
+
+0.94 (94%) — High Confidence
+
+This score reflects strong alignment across multiple high-weight identity attributes.
+
+🛠 Recommended Action
+
+MERGE
+
+Given the strength of the matching fields, merging these records is recommended to maintain data consistency and prevent reporting or compliance errors.
