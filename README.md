@@ -1,134 +1,208 @@
-# Explainable Duplicate Detection Agent for Data Quality
-**We built an AI agent on Elasticsearch that doesn’t just detect duplicates—it explains decisions, recommends actions, and automates data quality workflows**
+# 🧠 Explainable Duplicate Detection Agent for Data Quality
 
-## 📌 Overview Goal
-This project is an **Explainable Duplicate Detection Agent** designed to improve **data quality** by detecting duplicate customer/person records stored in **Elasticsearch**.
 
-Instead of only giving a similarity score, the agent provides:
-- Field-level match explanation
-- Confidence score
-- Recommended action (MERGE / REVIEW / IGNORE)
+We built an AI-powered agent on Elasticsearch that doesn’t just detect duplicates —  
+it explains decisions, recommends actions, and automates data quality workflows.
 
-This makes duplicate detection **transparent, auditable, and easy for business teams**.
+---
 
---- 
+## 📌 Overview
+
+This project is an **Explainable Duplicate Detection Agent** designed to improve enterprise **data quality** by detecting duplicate customer/person records stored in **Elasticsearch**.
+
+Unlike traditional dedupe systems that only return similarity scores, this agent provides:
+
+- ✅ Field-level match explanation  
+- ✅ Confidence score (0–1)  
+- ✅ Clear recommended action (AUTO-MERGE / MERGE / REVIEW / IGNORE)  
+- ✅ Suggested master record (if merge applicable)  
+
+The result is a system that is **transparent, auditable, and business-friendly**.
+
+---
+
 ## 🔍 The Real Problem
-Today:
-Dedupe systems silently merge or flag records
-Ops teams don’t know why
-Audits, complaints, and rollbacks happen late
-Most dedupe systems:
-Say “duplicate found”
-But NEVER say why
 
-Business users, QA teams, and auditors hate that.
+Today’s dedupe systems:
+
+- Silently merge or flag records  
+- Provide no reasoning  
+- Create audit and compliance issues  
+- Cause operational confusion  
+- Increase rollback risks  
+
+Most systems say:
+
+> “Duplicate Found.”
+
+But never explain **why**.
+
+Business users, QA teams, compliance officers, and auditors need transparency.
+
+---
 
 ## 🚀 Key Features
-✅ Detect duplicate customer records  
-✅ Explainable output (why records are duplicates)  
-✅ Confidence scoring system  
-✅ Uses Elastic ES|QL + DSL queries  
-✅ Suggests MERGE / REVIEW / IGNORE actions  
-✅ Generates merged master record preview  
-✅ Helps improve enterprise data quality workflows  
+
+✅ Intelligent duplicate detection using Elasticsearch  
+✅ Explainable AI-driven reasoning  
+✅ Field-weighted confidence scoring system  
+✅ Fuzzy + exact match logic  
+✅ ES|QL + DSL query integration  
+✅ Automated action recommendation  
+✅ Master record preview generation  
+✅ Enterprise-ready data quality workflow  
 
 ---
 
 ## 🧠 How the Agent Works
-### Step-by-step flow:
-1. User asks query (natural language or field-based)
-2. Agent fetches candidate records from Elasticsearch
-3. Agent compares fields:
-   - name similarity
-   - email match
-   - phone match
-   - address similarity
-4. Agent generates:
-   - confidence score
-   - explanation of matched fields
-   - action recommendation
-5. If merge recommended, agent generates a master record
 
-   **Agent Reasoning Example**
-User:
+### Step-by-Step Workflow
+
+1. User submits a natural language or structured query  
+2. Agent calls Elasticsearch to retrieve candidate records  
+3. Agent compares identity fields:
+   - Name similarity (fuzzy + phonetic)
+   - Email exact match
+   - Phone exact match
+   - Address similarity
+   - Additional identity signals (if available)
+4. Agent calculates confidence score (0–1)
+5. Agent generates:
+   - Field-level explanation
+   - Confidence interpretation
+   - Recommended action
+6. If merge is recommended → Agent generates a master record preview
+
+---
+
+## 🧾 Example Reasoning Output
+
+**User Query:**  
 Why were these two customer records marked as duplicates?
 
 **Agent Response:**
 
-94% phonetic match on name 
-Same PAN hash
-Address similarity across 3 components
-Appeared in same ingestion window
-Similarity threshold exceeded (0.88 > 0.85)
+- 94% phonetic similarity on name  
+- Exact match on PAN hash  
+- Address similarity across 3 components  
+- Appeared within the same ingestion window  
+- Similarity threshold exceeded (0.88 > 0.85)
 
-✅ Transparent
-✅ Auditable
-✅ Trustworthy
+**Confidence Score:** 0.94  
+**Recommended Action:** MERGE  
+
+✔ Transparent  
+✔ Auditable  
+✔ Trustworthy  
 
 ---
-## 🤖 LLM Support
-This agent is **LLM-agnostic** and can work with any supported Large Language Model (LLM) integrated into Elastic Agent Builder.
+
+## 🤖 LLM Support (LLM-Agnostic Architecture)
+
+This agent is fully **LLM-agnostic** and works with any model supported by Elastic Agent Builder.
 
 Examples:
-- OpenAI GPT models
-- Azure OpenAI
-- Anthropic Claude
-- Local/self-hosted LLMs (if connected)
 
-The LLM is used to generate human-readable explanations and final recommendations, while Elasticsearch handles fast retrieval and candidate search.
------
+- OpenAI GPT models  
+- Azure OpenAI  
+- Anthropic Claude  
+- Local / self-hosted LLMs  
 
-## 🛠 Tech Stack
-- Elasticsearch
-- ES|QL
-- DSL Query Search
-- Bulk API (data loading)/grounded in elastic data
-- Elastic Agent Builder (workflow orchestration)
+Elasticsearch handles fast candidate retrieval.  
+The LLM generates explainable reasoning and final decisions.
 
 ---
-## Automation of a clear business task ✅
-The business task:
 
-Automating duplicate record review and decision explanation
+## 🛠 Tech Stack
 
-Real‑world relevance:
+- Elasticsearch  
+- ES|QL  
+- DSL Query Search  
+- Bulk API (data ingestion)  
+- Elastic Agent Builder (workflow orchestration)  
+- Vector search (optional for semantic similarity)  
 
-CRM systems
-Banking KYC
-Support systems
-Sales ops
+Built and optimized by **Praneeth (Elastic Certified Engineer)**.
 
-Before agent:
+---
 
-Manual querying
-Manual comparison
-No explanations
+## 🏢 Business Impact
 
-After agent:
+### 🎯 Business Task Automated:
+Duplicate record detection + explanation
 
-One command → duplicate check → explanation → recommendation
+### 👥 Target Users:
+- Data Quality Teams  
+- CRM Teams  
+- Banking & KYC Operations  
+- Sales Operations  
+- Support Systems  
+- Compliance & Audit Teams  
 
-✅ Clear productivity improvement.
+---
 
+## 🔄 Before vs After
 
+### ❌ Before Agent
+- Manual search queries  
+- Manual field comparison  
+- No clear explanation  
+- Time-consuming review  
+- High risk of incorrect merges  
 
- Automates a clear business task
+### ✅ After Agent
+- One command  
+- Automated duplicate detection  
+- Clear explanation  
+- Confidence scoring  
+- Action recommendation  
+- Master record suggestion  
 
-Must automate a real‑world task or improve productivity.
+**Result:**
+- Reduced manual review time  
+- Improved productivity  
+- Higher audit confidence  
+- Better data governance  
 
-Your business task is clear and strong: ✅
+---
 
-Task: Duplicate record detection + explanation
-Users: Data quality teams, KYC, CRM, Ops
-Value:
+## 📈 Why This Matters
 
-Reduces manual review
-Prevents wrong merges
-Improves auditability
-Saves time
+This solution directly addresses:
 
- ## License
+- Data inconsistency  
+- Compliance risk  
+- Customer profile fragmentation  
+- Operational inefficiencies  
+
+It automates messy internal work and transforms it into an explainable, AI-assisted workflow.
+
+---
+
+## 🔐 Design Principles
+
+- Explainability over black-box scoring  
+- Deterministic confidence logic  
+- Human-in-the-loop option (REVIEW stage)  
+- Audit-friendly output format  
+- Enterprise scalability  
+
+---
+
+## 📜 License
+
 This project is licensed under the Apache License 2.0.
 
+---
 
-✅ This fits “Automate messy internal work” perfectly
+## 👨‍💻 Author
+
+**Praneeth**  
+Elastic Certified Engineer  
+Specializing in Elasticsearch, ES|QL, AI-driven search, and data quality automation.
+
+---
+
+⭐ Built to automate messy internal work  
+⭐ Designed for enterprise-grade data quality  
+⭐ Explainable AI + Elasticsearch done right
