@@ -61,24 +61,3 @@ The LLM is used to generate human-readable explanations and final recommendation
 
 ---
 
-## ⚙️ Setup Instructions
-
-### 1. Create Elasticsearch Index
-Run the request in Kibana Dev Tools:
-
-```http
-PUT customers
-{
-  "mappings": {
-    "properties": {
-      "customer_id": { "type": "keyword" },
-      "name": { "type": "text" },
-      "email": { "type": "keyword" },
-      "phone": { "type": "keyword" },
-      "address": { "type": "text" },
-      "city": { "type": "keyword" },
-      "state": { "type": "keyword" },
-      "created_at": { "type": "date" }
-    }
-  }
-}
