@@ -1,7 +1,7 @@
 # Explainable Duplicate Detection Agent for Data Quality
+**We built an AI agent on Elasticsearch that doesn’t just detect duplicates—it explains decisions, recommends actions, and automates data quality workflows**
 
-
-## 📌 Overview
+## 📌 Overview Goal
 This project is an **Explainable Duplicate Detection Agent** designed to improve **data quality** by detecting duplicate customer/person records stored in **Elasticsearch**.
 
 Instead of only giving a similarity score, the agent provides:
@@ -11,11 +11,13 @@ Instead of only giving a similarity score, the agent provides:
 
 This makes duplicate detection **transparent, auditable, and easy for business teams**.
 
----
-## Goal
- **Problem**
+--- 
+## 🔍 The Real Problem
+Today:
+Dedupe systems silently merge or flag records
+Ops teams don’t know why
+Audits, complaints, and rollbacks happen late
 Most dedupe systems:
-
 Say “duplicate found”
 But NEVER say why
 
@@ -45,7 +47,23 @@ Business users, QA teams, and auditors hate that.
    - confidence score
    - explanation of matched fields
    - action recommendation
-5. If merge recommended, agent generates a master merged record
+5. If merge recommended, agent generates a master record
+
+   **Agent Reasoning Example**
+User:
+Why were these two customer records marked as duplicates?
+
+**Agent Response:**
+
+94% phonetic match on name 
+Same PAN hash
+Address similarity across 3 components
+Appeared in same ingestion window
+Similarity threshold exceeded (0.88 > 0.85)
+
+✅ Transparent
+✅ Auditable
+✅ Trustworthy
 
 ---
 ## 🤖 LLM Support
@@ -68,4 +86,47 @@ The LLM is used to generate human-readable explanations and final recommendation
 - Elastic Agent Builder (workflow orchestration)
 
 ---
+## Automation of a clear business task ✅
+The business task:
 
+Automating duplicate record review and decision explanation
+
+Real‑world relevance:
+
+CRM systems
+Banking KYC
+Support systems
+Sales ops
+
+Before agent:
+
+Manual querying
+Manual comparison
+No explanations
+
+After agent:
+
+One command → duplicate check → explanation → recommendation
+
+✅ Clear productivity improvement.
+
+
+
+ Automates a clear business task
+
+Must automate a real‑world task or improve productivity.
+
+Your business task is clear and strong: ✅
+
+Task: Duplicate record detection + explanation
+Users: Data quality teams, KYC, CRM, Ops
+Value:
+
+Reduces manual review
+Prevents wrong merges
+Improves auditability
+Saves time
+
+
+
+✅ This fits “Automate messy internal work” perfectly
