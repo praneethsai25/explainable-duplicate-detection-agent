@@ -127,6 +127,8 @@ Prevents wrong merges
 Improves auditability
 Saves time
 
+ ## License
+This project is licensed under the Apache License 2.0.
 
 
 ✅ This fits “Automate messy internal work” perfectly
