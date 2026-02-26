@@ -1,5 +1,6 @@
 # Explainable Duplicate Detection Agent for Data Quality
 
+
 ## 📌 Overview
 This project is an **Explainable Duplicate Detection Agent** designed to improve **data quality** by detecting duplicate customer/person records stored in **Elasticsearch**.
 
@@ -7,11 +8,18 @@ Instead of only giving a similarity score, the agent provides:
 - Field-level match explanation
 - Confidence score
 - Recommended action (MERGE / REVIEW / IGNORE)
-- Simulated merged master record generation
 
 This makes duplicate detection **transparent, auditable, and easy for business teams**.
 
 ---
+## Goal
+ **Problem**
+Most dedupe systems:
+
+Say “duplicate found”
+But NEVER say why
+
+Business users, QA teams, and auditors hate that.
 
 ## 🚀 Key Features
 ✅ Detect duplicate customer records  
